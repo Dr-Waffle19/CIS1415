@@ -1,0 +1,25 @@
+#Takes user input for dimensions of half-arrow's base height
+arrow_base_height = int(input('Enter arrow base height:\n'))
+
+#Takes user input for dimensions of half-arrow's base width
+arrow_base_width = int(input('Enter arrow base width:\n'))
+
+#Takes user input for dimensions of half-arrow's head width
+arrow_head_width = int(input('Enter arrow head width:\n'))
+
+#Makes sure that the user input for the half-arrow's head width is larger
+#than its base width (so it actually looks like a half-arrow)
+while arrow_head_width <= arrow_base_width:
+    arrow_head_width = int(input('Enter arrow head width:\n'))
+
+print('')
+
+#for loop to print out the half-arrow's base using the two
+#user inputted values
+for i in range(arrow_base_height):
+    print('*' * arrow_base_width)
+
+#Creates an upside-down half pyramid for the half-arrow's
+#head using a de-incrementing for loop and user input value
+for n in range(arrow_head_width):
+    print('*' * (arrow_head_width - n))
