@@ -1,0 +1,79 @@
+#This block of code takes user input for the title and two headers of a data
+#table and stores them under variables for later use.
+data_title = input('Enter a title for the data:\n')
+print('You entered:', data_title)
+column1_header = input('\nEnter the column 1 header:\n')
+print('You entered:', column1_header)
+column2_header = input('\nEnter the column 2 header:\n')
+print('You entered:', column2_header)
+
+#Initializing data point lists to append to later.
+dp_str_list = []
+dp_int_list = []
+
+'''Takes user input for a data point of their table in a string, int format.
+This data point is stored to check in a while loop, as well as modify and
+use later on.'''
+usr_input = input('\nEnter a data point (-1 to stop input):\n')
+
+#While loop used to check and help correct the data point entry of the user.
+#(-1 to exit loop).
+while usr_input != '-1':
+
+    #This nested while loop checks whether there is a comma in the entered data
+    #point, and asks the user to re-enter if not.
+    while (',' in usr_input) == False:
+        print('Error: No comma in string.')
+        usr_input = input('\nEnter a data point (-1 to stop input):\n')
+
+    #This nested while loop checks how many commas are in the user inputted
+    #string, and asks the user to re-enter if more than 1.
+    while usr_input.count(',') > 1:
+        print('Error: Too many commas in input.')
+        usr_input = input('\nEnter a data point (-1 to stop input):\n')
+
+    #This nested while loop checks to see if an integer follows the comma, and
+    #and asks the user to re-enter if not.
+    while ((', 0' in usr_input) or (', 1' in usr_input) or (', 2' in usr_input) or
+    (', 3' in usr_input) or (', 4' in usr_input) or (', 5' in usr_input) or
+    (', 6' in usr_input) or (', 7' in usr_input) or (', 8' in usr_input) or
+    (', 9' in usr_input)) == False:
+        print('Error: Comma not followed by an integer.')
+        usr_input = input('\nEnter a data point (-1 to stop input):\n')
+
+    #Splits the two parts of the data point in two and stores them under
+    #variables to display and use later.
+    data_str = usr_input.split(', ')[0]
+    data_int = usr_input.split(', ')[1]
+
+    #Prints out the two parts of the user entered data point
+    print('Data string:', data_str)
+    print('Data integer:', data_int)
+
+    '''Appends the two parts of the data point to a list to displat later,
+    and changes the value of the integer from a string to an integer for
+    better access in later parts of the file.'''
+    dp_str_list.append(data_str)
+    dp_int_list.append(int(data_int))
+
+    #Asks user for a new data point entry to continue the while loop.
+    #(-1 to exit the loop).
+    usr_input = input('\nEnter a data point (-1 to stop input):\n')
+
+#This block prints out the title and two headers, using conversion specifiers
+#and conversion specifiers to format them.
+print('\n%33s' % data_title)
+print('%-20s|%23s' % (column1_header, column2_header))
+print('-' * 44)
+
+#Utilizes a for loop with the previously appended lists to print out a data
+#table using the user inputted data points.
+for i in range(len(dp_str_list)):
+    print('%-20s|%23d' % (dp_str_list[i], dp_int_list[i]))
+
+print('')
+
+#Utilizes a for loop with the previously appended lists to print out a
+#histogram using the user inputted data points.
+for i in range(len(dp_str_list)):
+    print('%20s %s' % (dp_str_list[i], ('*' * dp_int_list[i])))
