@@ -1,0 +1,25 @@
+#Takes user input and stores it under a variable to modify later
+user_str = input('Enter input string:\n')
+
+#Use a while to check whether the user wants to quit entering strings.
+#They can do such by entering a lowercase q.
+while user_str != 'q':
+    
+    #This while loop checks to make sure that the user seperated their
+    #string with a comma, and asks them to re-enter a string if not.
+    while (',' in user_str) == False:
+        print('Error: No comma in string.')
+        user_str = input('\nEnter input string:\n')
+
+    '''This block edits the string by spliting it into two parts, using
+    .split(), and then removes any whitespace in those two parts, using
+    .replace(), and stores those two modified parts for later use.'''
+    user_str_edit = user_str.split(',')
+    first_word = user_str_edit[0].replace(' ', '')
+    second_word = user_str_edit[1].replace(' ', '')
+
+    #This block Prints out the two parts, as well as asks the user for
+    #a new input to continue the while loop (q to quit).
+    print('First word:', first_word)
+    print('Second word:', second_word)
+    user_str = input('\nEnter input string:\n')
