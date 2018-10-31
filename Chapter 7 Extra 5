@@ -1,0 +1,38 @@
+#Takes a user input of a Telephone number that's alphanumeric, stored
+#under a variable for later use/modification.
+usr_telenum = input('Enter a telephone number (XXX-XXX-XXXX):\n')
+
+#Convert number to all uppercase to lessen .replace() calls.
+usr_telenum = usr_telenum.upper()
+
+#This block reassigns all letters with their telephone number parallel
+#using the .replace() function.
+usr_telenum = usr_telenum.replace('A', '2')
+usr_telenum = usr_telenum.replace('B', '2')
+usr_telenum = usr_telenum.replace('C', '2')
+usr_telenum = usr_telenum.replace('D', '3')
+usr_telenum = usr_telenum.replace('E', '3')
+usr_telenum = usr_telenum.replace('F', '3')
+usr_telenum = usr_telenum.replace('G', '4')
+usr_telenum = usr_telenum.replace('H', '4')
+usr_telenum = usr_telenum.replace('I', '4')
+usr_telenum = usr_telenum.replace('J', '5')
+usr_telenum = usr_telenum.replace('K', '5')
+usr_telenum = usr_telenum.replace('L', '5')
+usr_telenum = usr_telenum.replace('M', '6')
+usr_telenum = usr_telenum.replace('N', '6')
+usr_telenum = usr_telenum.replace('O', '6')
+usr_telenum = usr_telenum.replace('P', '7')
+usr_telenum = usr_telenum.replace('Q', '7')
+usr_telenum = usr_telenum.replace('R', '7')
+usr_telenum = usr_telenum.replace('S', '7')
+usr_telenum = usr_telenum.replace('T', '8')
+usr_telenum = usr_telenum.replace('U', '8')
+usr_telenum = usr_telenum.replace('V', '8')
+usr_telenum = usr_telenum.replace('W', '9')
+usr_telenum = usr_telenum.replace('X', '9')
+usr_telenum = usr_telenum.replace('Y', '9')
+usr_telenum = usr_telenum.replace('Z', '9')
+
+#Prints out the final result of the converted telephone number.
+print('\nThe entered telephone number as numeric:', usr_telenum)
