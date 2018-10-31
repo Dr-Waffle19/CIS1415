@@ -1,0 +1,36 @@
+#Takes user input of a string to be converted from English to Pig Latin.
+#The user string is stored under a variable to be modified and used later.
+usr_str = input('Enter an English string to be converted:\n')
+
+#Makes the user's input all uppercase to avoid problems when modifying.
+usr_str = usr_str.upper()
+
+#Splits the user's input string into seperate words, stored in a list by
+#using the .split() function, and stores it under a variable.
+usr_str_list = usr_str.split()
+
+#Initializing an empty list variable to append to later.
+usr_str_list_pig = []
+
+'''This program uses a for loop to sort through and count the individual letters
+of the user inputted string, using a nested for loop to sort through each
+character of each element of the list'''
+for i in range(len(usr_str_list)):
+    
+    #Initializing variables to use when concentating strings later
+    string_part = usr_str_list[i]
+    first_letter = usr_str_list[i][0]
+
+    '''This nested for loop is used to count the characters of each element,
+    eventually concentating the first letter and AY at the end of the
+    string part and appending it to the earlier initialized list.'''
+    for n in range(len(usr_str_list[i])):
+        if (n + 1) == len(usr_str_list[i]):
+            string_part_pig = string_part.replace(first_letter, '', 1)
+            string_part_pig = string_part_pig + first_letter + 'AY'
+            usr_str_list_pig.append(string_part_pig)
+
+#Re-joins the independent strings from the list with a space, stores them
+#under a variable and prints out the converted string.
+usr_str_pig = ' '.join(usr_str_list_pig)
+print('\nYour string in Pig Latin is:', usr_str_pig)
