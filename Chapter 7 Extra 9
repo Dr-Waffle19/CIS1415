@@ -1,0 +1,46 @@
+#This function takes a string as an argument and counts the number of vowels
+#that the string contains using a for loop.
+def num_vowels(string):
+    
+    #Modifies the string to all lowercase to make searching for characters easier
+    string = string.lower()
+    vowel_count = 0
+    
+    #This for  loop searches character by character for a vowel. If one is
+    #detected, it adds one to the variable vowel_count.
+    for i in string:
+        if ((i == 'a') or (i == 'e') or (i == 'i') or (i == 'o')
+            or (i == 'u')) == True:
+            vowel_count += 1
+    return vowel_count
+
+#This function takes a string as an argument and counts the number of
+#consonants that the string contains using a for loop.
+def num_consonants(string):
+
+    #Modifies the string to all lowercase to make searching for characters easier
+    string = string.lower()
+    consonant_count = 0
+
+    #This for  loop searches character by character for a consonant. If one is
+    #detected, it adds one to the variable consonant_count.
+    for i in string:
+        if ((i == 'a') or (i == 'e') or (i == 'i') or (i == 'o') or (i == '0')
+            or (i == '1') or (i == '2') or (i == '3') or (i == '4') or
+            (i == '5') or (i == '6') or (i == '7') or (i == '8') or (i == '9')
+            or (i == 'u') or (i == ' ') or (i == ',') or (i == '.') or
+            (i == '!') or (i == '?') or (i == '\'')) == False:
+            consonant_count += 1
+    return consonant_count
+
+#Takes a user entered string to use in the above functions, stored in a variable
+user_string = input('Enter a string:\n')
+
+#Assigns variables with the result of the user string in the two seperate
+#functions.
+user_vowels = num_vowels(user_string)
+user_consonants = num_consonants(user_string)
+
+#Prints out the count of vowels and consonants using previous variables
+print('Number of vowels in string:', user_vowels)
+print('Number of consonants in string:', user_consonants)
