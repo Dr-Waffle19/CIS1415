@@ -1,0 +1,21 @@
+#Takes usre's input of their full name and stores the response under a variable
+#for later modification and use.
+full_name = input('Enter your full name (first, middle, last):\n')
+
+#This block of code splits up the user's input into each individual name,
+#first, middle, and last, using .split() and stores them under variables.
+first_name = full_name.split()[0]
+middle_name = full_name.split()[1]
+last_name = full_name.split()[2]
+
+#This block of code obtains the first character (or initial) from the previously
+#modified strings and stores them under variables.
+first_initial = first_name[0]
+middle_initial = middle_name[0]
+last_initial = last_name[0]
+
+#The .join() function is used to re-join the stored initials into one string,
+#and joins the with a period and space.
+full_initials = '. '.join([first_initial, middle_initial, last_initial, ''])
+
+print(full_initials)
